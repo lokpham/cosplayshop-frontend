@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-login {
+    @apply p-2 bg-purple-600 text-white cursor-pointer rounded-md shadow-sm;
+  }
+  .dropdown {
+    @apply hidden min-w-[100px] bg-white absolute p-2 rounded-sm shadow-lg text-black whitespace-nowrap;
+  }
+  .dropdown.down {
+    @apply top-full left-0;
+  }
+  .dropdown.right {
+    @apply left-full top-0;
+  }
+  .dropdownactive > .dropdown {
+    @apply block;
+  }
+}
