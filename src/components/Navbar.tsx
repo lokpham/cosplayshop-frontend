@@ -47,7 +47,7 @@ const fakedata = [
     to: "/cosplayer",
   },
   {
-    name: "News",
+    name: "Tin tức",
     to: "/news",
   },
 ];
@@ -59,16 +59,14 @@ const Navbar = () => {
     navigate("/catetory");
   };
   return (
-    <ul className="flex divide-x  text-white">
+    <ul className=" divide-x text-white md:flex hidden">
       {fakedata.map((item, index) => {
         return (
-          <li
-            key={index}
-            className="divide-x px-6 py-2 hover:border-b-secondary-700 border-b-2 border-w hover:bor border-b-transparent"
-          >
+          <li key={index}>
             {item.items ? (
-              <Dropdown arrow menu={{ items, onClick }}>
+              <Dropdown menu={{ items, onClick }}>
                 <a
+                  className="divide-x px-6 py-2 hover:border-b-secondary-700 border-b-2 border-w hover:bor border-b-transparent"
                   onClick={(e) => {
                     e.preventDefault();
                   }}
@@ -77,7 +75,12 @@ const Navbar = () => {
                 </a>
               </Dropdown>
             ) : (
-              <Link to={item.to}>{item.name}</Link>
+              <Link
+                className="divide-x px-6 py-2 hover:border-b-secondary-700 border-b-2 border-w hover:bor border-b-transparent"
+                to={item.to}
+              >
+                {item.name}
+              </Link>
             )}
           </li>
         );

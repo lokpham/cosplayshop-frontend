@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @layer components {
   .btn-login {
     @apply p-2 bg-purple-600 text-white cursor-pointer rounded-md shadow-sm;

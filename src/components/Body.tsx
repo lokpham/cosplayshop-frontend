@@ -5,7 +5,7 @@ type prop = {
 };
 
 const Body = ({ children }: prop) => {
-  return <div className="grow container mx-auto">{children}</div>;
+  return <div className="grow container mx-auto p-2">{children}</div>;
 };
 
 export default Body;

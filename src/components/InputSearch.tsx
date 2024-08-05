@@ -7,7 +7,7 @@ const InputSearch = () => {
   };
 
   return (
-    <div className="p-1 max-w-[600px] flex items-center  bg-white shadow-md ">
+    <div className="p-1 max-w-[600px] rounded-lg flex items-center  bg-white shadow-md ">
       <input
         value={search}
         onChange={handleSearch}

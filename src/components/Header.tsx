@@ -8,7 +8,7 @@ import Navbar from "./Navbar";
 const Header = () => {
   return (
     <div className="bg-secondary shadow-md">
-      <div className="container mx-auto p-2">
+      <div className="container mx-auto p-4">
         <div className="md:hidden flex justify-between ">
           <RiMenu2Fill className="text-white text-[2rem] cursor-pointer" />
           <Link className="btn-login" to={"login"}>
