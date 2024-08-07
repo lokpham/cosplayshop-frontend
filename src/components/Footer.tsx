@@ -25,7 +25,7 @@ const Footer = () => {
           Hỗ trợ
           {help_list.map((item, index) => {
             return (
-              <li>
+              <li key={index}>
                 <Link className="hover:text-sky-700" key={index} to={item.to}>
                   {item.label}
                 </Link>
