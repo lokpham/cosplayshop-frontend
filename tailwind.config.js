@@ -15,6 +15,9 @@ export default {
       spacing: {
         offset_xl: "9rem",
       },
+      fontSize: {
+        responsive: " clamp(1rem, 2vw, 2rem)",
+      },
     },
   },
   plugins: [],

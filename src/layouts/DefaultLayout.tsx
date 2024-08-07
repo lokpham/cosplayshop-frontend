@@ -4,13 +4,11 @@ import Body from "../components/Body";
 import Footer from "../components/Footer";
 import { Outlet } from "react-router-dom";
 
-const DefaultLayout = () => {
+const DefaultLayout = ({ children }: { children?: ReactNode }) => {
   return (
     <div className="min-h-[100vh] flex flex-col ">
       <Header />
-      <Body>
-        <Outlet />
-      </Body>
+      <Body>{children ? children : <Outlet />}</Body>
       <Footer />
     </div>
   );

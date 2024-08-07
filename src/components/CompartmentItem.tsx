@@ -1,21 +1,12 @@
 import React, { useMemo } from "react";
-import {
-  Badge,
-  Button,
-  Card,
-  Modal,
-  notification,
-  NotificationArgsProps,
-  Space,
-} from "antd";
+import { Badge, Button, Modal, notification } from "antd";
 import { MdAddShoppingCart } from "react-icons/md";
 import { FaMagnifyingGlassPlus } from "react-icons/fa6";
 import { card_product } from "../types/product_type";
 import { useAtom } from "jotai";
 import { cart_atom } from "../atoms/myAtom";
-type NotificationPlacement = NotificationArgsProps["placement"];
-
-const Context = React.createContext({ name: "Default" });
+import { Link } from "react-router-dom";
+import PriceDiscount from "./PriceDiscount";
 const CompartmentItem = ({ infor }: { infor: card_product }) => {
   const [api, contextHolder] = notification.useNotification();
 
@@ -64,25 +55,9 @@ const CompartmentItem = ({ infor }: { infor: card_product }) => {
       </Badge.Ribbon>
 
       <div>
-        <p className="font-semibold my-2">{infor.name}</p>
-        <p className="space-x-2">
-          {infor.discount == 0 ? (
-            <span className="text-red-500 my-2">
-              {infor.price.toLocaleString("en-US")} đ
-            </span>
-          ) : (
-            <>
-              <span className="text-red-500 my-2">
-                {infor.discount.toLocaleString("en-US")} đ
-              </span>
-              <span>-</span>
-              <span className="line-through text-gray-400">
-                {infor.price.toLocaleString("en-US")} đ
-              </span>
-            </>
-          )}
-        </p>
-        <div className="space-x-2 w-fit ml-auto">
+        <p className="font-semibold my-2 line-clamp-1">{infor.name}</p>
+        <PriceDiscount price={infor.price} discount={infor.discount} />
+        <div className="space-x-2 mt-4 w-fit ml-auto">
           <Button
             onClick={showLoading}
             type="default"
@@ -91,13 +66,15 @@ const CompartmentItem = ({ infor }: { infor: card_product }) => {
           >
             Thêm
           </Button>
-          <Button
-            type="default"
-            shape="default"
-            icon={<FaMagnifyingGlassPlus />}
-          >
-            Xem
-          </Button>
+          <Link to={`/product/detail/${infor.id}`}>
+            <Button
+              type="default"
+              shape="default"
+              icon={<FaMagnifyingGlassPlus />}
+            >
+              Xem
+            </Button>
+          </Link>
         </div>
       </div>
       {contextHolder}

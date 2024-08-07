@@ -10,7 +10,7 @@ const fake_products: card_product[] = [
     id: 1,
     image:
       "https://product.hstatic.net/1000273792/product/a0_af7b238cf02643bc89c1044f4215bb14_large.jpg",
-    name: "Lorema djalksdjsaljd lajsld jasl dasld asd ",
+    name: "Lorema djalksdjsaljd lajsld jasl dasld   jasl dasld asd  jasl dasld asd  jasl dasld asd  jasl dasld asd  jasl dasld asd  jasl dasld asd  jasl dasld asd  jasl dasld asd  ",
     price: 130000,
     discount: 0,
   },
@@ -51,7 +51,7 @@ const Home = () => {
       </div>
 
       <Compartment title="Hàng mới về" data={fake_products} />
-      {/* <Compartment title="Hàng bán chạy" data={fake_products} /> */}
+      <Compartment title="Hàng bán chạy" data={fake_products} />
     </div>
   );
 };
