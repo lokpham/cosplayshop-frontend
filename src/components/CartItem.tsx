@@ -2,6 +2,7 @@ import React from "react";
 import { MdDelete } from "react-icons/md";
 import { cart_atom } from "../atoms/myAtom";
 import { useSetAtom } from "jotai";
+import InputQuantity from "./InputQuantity";
 const CartItem = ({
   name,
   quantity,
@@ -24,20 +25,7 @@ const CartItem = ({
       <img className="size-[50px] object-fill" src={image} alt="" />
       <div className="space-y-1">
         <p className="font-semibold">{name}</p>
-        <p>
-          Số lượng:{" "}
-          <input
-            className="outline-none ring-2 ring-gray-500 max-w-[60px] pl-2
-          "
-            step={1}
-            min={1}
-            max={40}
-            value={quantity}
-            type="number"
-            name=""
-            id=""
-          />{" "}
-        </p>
+        <InputQuantity />
         <p>Giá: {price.toLocaleString("en-US")} đ</p>
         <p>
           Tổng: {(price * quantity).toLocaleString("en-US")} đ{" "}

@@ -30,6 +30,14 @@ const fake_products: card_product[] = [
     price: 800400,
     discount: 600000,
   },
+  {
+    id: 3,
+    image:
+      "https://product.hstatic.net/1000273792/product/0_49ea55c5f1f34c088d2f49532d5b36c7_grande.jpg",
+    name: "Lorema djalksdjsaljd lajsld jasl dasld asd ",
+    price: 800400,
+    discount: 600000,
+  },
 ];
 const Home = () => {
   return (

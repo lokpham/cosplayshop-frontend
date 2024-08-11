@@ -7,6 +7,8 @@ import { useAtom } from "jotai";
 import { cart_atom } from "../atoms/myAtom";
 import { Link } from "react-router-dom";
 import PriceDiscount from "./PriceDiscount";
+import ProductDetail from "./ProductDetail";
+import sale_badge from "../assets/sale_badge.png";
 const CompartmentItem = ({ infor }: { infor: card_product }) => {
   const [api, contextHolder] = notification.useNotification();
 
@@ -40,7 +42,7 @@ const CompartmentItem = ({ infor }: { infor: card_product }) => {
   };
   return (
     <div className=" select-none flex flex-col p-2 hover:shadow-lg transition-shadow">
-      <Badge.Ribbon text="New" color="pink">
+      <Badge.Ribbon text={"New"} color="gold">
         <div
           className="w-full 
          overflow-hidden"
@@ -79,7 +81,8 @@ const CompartmentItem = ({ infor }: { infor: card_product }) => {
       </div>
       {contextHolder}
       <Modal
-        title={<p>Bạn muốn thêm sản phẩm này?</p>}
+        width={1000}
+        title={<p>{loading ? "Vui lòng chờ..." : "Thông tin sản phẩm"}</p>}
         footer={
           <Button type="primary" onClick={handleAddCart}>
             Thêm
@@ -89,9 +92,8 @@ const CompartmentItem = ({ infor }: { infor: card_product }) => {
         open={open}
         onCancel={() => setOpen(false)}
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        {/* <p>2424244242</p> */}
+        <ProductDetail />
       </Modal>
     </div>
   );

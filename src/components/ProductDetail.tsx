@@ -3,6 +3,8 @@ import React from "react";
 import PriceDiscount from "./PriceDiscount";
 import { GiFlowerStar } from "react-icons/gi";
 import { FaBoxOpen } from "react-icons/fa";
+import InputQuantity from "./InputQuantity";
+import ProductOption from "./ProductOption";
 const fake_data = {
   id: 1,
   image:
@@ -11,51 +13,44 @@ const fake_data = {
   price: 130000,
   discount: 120000,
   quantity: 10,
+  description:
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo velit quae, quaerat assumenda minima, mollitia ut, omnis quod possimus earum rerum sint? Ducimus nostrum soluta et. Deserunt deleniti ullam aliquam?",
 };
 const ProductDetail = ({ infor }: any) => {
   return (
     <div>
-      <div className="flex gap-2">
-        <div>
-          <Image
-            className="max-w-[500px] max-h-[600px]"
-            src={fake_data.image}
-            alt="product_img"
-            placeholder={
-              <Image
-                preview={false}
-                src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"
-                width={200}
-              />
-            }
-          />
-        </div>
+      <div className="flex sm:flex-row flex-col gap-4 items-start">
+        <Image
+          wrapperClassName="lg:w-[500px] md:w-[300px] w-[200px] shrink-0"
+          src={fake_data.image}
+          alt="product_img"
+        />
         <div className="space-y-4">
           <p className="font-semibold text-responsive">{fake_data.name}</p>
-          <PriceDiscount
-            price={fake_data.price}
-            discount={fake_data.discount}
-          />
-          <div>
-            <p className="space-x-2">
-              <GiFlowerStar className="inline-block" />
-              <span>Mã sản phẩm: {fake_data.id}</span>
-            </p>
-            <p className="space-x-2">
-              <FaBoxOpen className="inline-block" />
-              <span>Tồn kho: {fake_data.quantity}</span>
-            </p>
-          </div>
-          <div>
-            Số lượng:
-            <input
-              min={1}
-              className="min-w-[30px] outline-none ring-1 ring-gray-400"
-              type="number"
-              name=""
-              id=""
+          <div className="text-responsive">
+            <PriceDiscount
+              price={fake_data.price}
+              discount={fake_data.discount}
             />
           </div>
+
+          <ul className="list-disc">
+            <li className="space-x-2 ml-6">
+              <span className="font-semibold">Mã sản phẩm:</span>
+              <span> {fake_data.id}</span>
+            </li>
+            <li className="space-x-2 ml-6">
+              <span className="font-semibold">Tồn kho:</span>
+              <span> {fake_data.quantity}</span>
+            </li>
+            <li className="space-x-2 ml-6">
+              <span className="font-semibold">Mô tả:</span>
+              <span> {fake_data.description}</span>
+            </li>
+          </ul>
+          <ProductOption type="color" />
+          <ProductOption type="size" />
+          <InputQuantity />
         </div>
       </div>
     </div>

@@ -5,6 +5,12 @@
   .btn-login {
     @apply p-2 bg-purple-600 text-white cursor-pointer rounded-md shadow-sm;
   }
+  .btn-submit[disabled] {
+    @apply pointer-events-none opacity-45;
+  }
+  .btn-submit {
+    @apply p-2 bg-blue-600 text-white cursor-pointer rounded-md shadow-sm;
+  }
   .dropdown {
     @apply hidden min-w-[100px] bg-white absolute p-2 rounded-sm shadow-lg text-black whitespace-nowrap;
   }
@@ -16,5 +22,17 @@
   }
   .dropdownactive > .dropdown {
     @apply block;
+  }
+  .input {
+    @apply ring-1 ring-gray-300 p-1 rounded-sm;
+  }
+  .input.input-error {
+    @apply ring-red-400;
+  }
+  .form {
+    @apply max-w-[400px] w-[400px] p-2 shadow-md flex flex-col gap-2 bg-white;
+  }
+  .input-message-error {
+    @apply text-red-500;
   }
 }
