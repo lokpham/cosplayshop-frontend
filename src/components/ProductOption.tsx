@@ -1,5 +1,3 @@
-import React from "react";
-
 const fake_data = {
   size: {
     label: "Kích thước",

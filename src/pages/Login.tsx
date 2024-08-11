@@ -1,6 +1,6 @@
 import { Form, Formik } from "formik";
 import { MyTextInput } from "../components/MyTextInput";
-import { Button, Divider } from "antd";
+import {  Divider } from "antd";
 import { loginschema } from "../config/validationSchema";
 const Login = () => {
   return (

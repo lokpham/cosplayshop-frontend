@@ -1,5 +1,5 @@
-import { Avatar, Badge, Drawer, Empty } from "antd";
-import React, { useEffect, useState } from "react";
+import { Badge, Drawer, Empty } from "antd";
+import {  useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import CartItem from "./CartItem";
 import { cart_atom } from "../atoms/myAtom";

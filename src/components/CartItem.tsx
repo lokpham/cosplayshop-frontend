@@ -1,4 +1,3 @@
-import React from "react";
 import { MdDelete } from "react-icons/md";
 import { cart_atom } from "../atoms/myAtom";
 import { useSetAtom } from "jotai";

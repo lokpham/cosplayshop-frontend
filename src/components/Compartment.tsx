@@ -1,4 +1,3 @@
-import React from "react";
 import { GoDash } from "react-icons/go";
 import CompartmentItem from "./CompartmentItem";
 import Carousel from "react-multi-carousel";

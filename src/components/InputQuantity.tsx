@@ -1,4 +1,3 @@
-import React from "react";
 
 const InputQuantity = ({ value: value = 1 }: { value?: number }) => {
   return (
