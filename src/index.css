@@ -30,9 +30,53 @@
     @apply ring-red-400;
   }
   .form {
-    @apply max-w-[400px] w-[400px] p-2 shadow-md flex flex-col gap-2 bg-white;
+    @apply max-w-[400px] rounded-md w-[400px] p-2 shadow-lg flex flex-col gap-2 bg-white;
   }
   .input-message-error {
     @apply text-red-500;
   }
+  .button {
+    @apply select-none;
+  }
+  .button.primary {
+    @apply bg-secondary-600 text-white hover:bg-secondary-500;
+  }
+  .button.link {
+    @apply bg-secondary-600 text-white hover:bg-secondary-500;
+  }
+  .button.secondary {
+    @apply bg-white text-secondary-500 border-2 border-secondary hover:opacity-85;
+  }
+  .button.medium {
+    @apply py-2 px-4 rounded-md shadow-sm;
+  }
+  .button.large {
+    @apply p-4 rounded-md shadow-sm;
+  }
+  .button.small {
+    @apply px-2 py-1 rounded-md shadow-sm;
+  }
+}
+.pagination {
+  display: flex;
+  list-style-type: none;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.pagination .active {
+  background-color: #007bff;
+  color: #fff;
+  border: 1px solid #007bff;
+}
+
+.pagination .ellipsis {
+  margin: 0 5px;
+  padding: 5px 10px;
 }

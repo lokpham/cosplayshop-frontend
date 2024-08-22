@@ -1,17 +1,17 @@
 import { GoDash } from "react-icons/go";
-import CompartmentItem from "./CompartmentItem";
+import CompartmentItem from "src/components/CompartmentItem";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { card_product } from "../types/product_type";
+import { card_product } from "src/types/product_type";
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 4,
+    items: 6,
     slidesToSlide: 3, // optional, default to 1.
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 2,
+    items: 3,
     slidesToSlide: 2, // optional, default to 1.
   },
   mobile: {

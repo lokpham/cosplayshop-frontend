@@ -17,7 +17,7 @@ const ProductOption = ({ type }: { type: "size" | "color" }) => {
         {fake_data[type].data.map((item, index) => {
           return (
             <div
-              className="hover:ring-red-400 hover:shadow-md cursor-pointer p-1 min-w-[40px] text-center ring-1 ring-gray-300"
+              className="hover:ring-red-400 hover:shadow-md cursor-pointer sm:text-[1rem] text-[0.8rem] p-1 min-w-[40px] text-center ring-1 ring-gray-300"
               key={index}
             >
               {item}

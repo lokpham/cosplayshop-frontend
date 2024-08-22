@@ -1,10 +1,10 @@
 import { Form, Formik } from "formik";
 import { MyTextInput } from "../components/MyTextInput";
-import {  Divider } from "antd";
+import { Divider } from "antd";
 import { loginschema } from "../config/validationSchema";
 const Login = () => {
   return (
-    <div className="flex justify-center items-center h-screen w-screen bg-primary">
+    <div className="flex justify-center items-center h-screen w-screen bg-secondary-300">
       <Formik
         initialValues={{
           password: "",
