@@ -1,5 +1,6 @@
 
 const InputQuantity = ({ value: value = 1 }: { value?: number }) => {
+  
   return (
     <div>
       <span>Số lượng: </span>

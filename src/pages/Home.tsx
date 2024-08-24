@@ -40,6 +40,30 @@ const fake_products: card_product[] = [
     price: 800400,
     discount: 600000,
   },
+  {
+    id: 4,
+    image:
+      "https://product.hstatic.net/1000273792/product/0_00c29af0db8848d487c8c662cf45d221_grande.jpg",
+    name: "asdadasdasda",
+    price: 34321,
+    discount: 2333,
+  },
+  {
+    id: 5,
+    image:
+      "https://product.hstatic.net/1000273792/product/2_8681da51d3bb4707821bc1439e0d30ad_grande.jpg",
+    name: " 323 2323 232 ",
+    price: 1288888,
+    discount: 42424,
+  },
+  {
+    id: 6,
+    image:
+      "https://product.hstatic.net/1000273792/product/m1_40446a5e952c4a9c9b30238ce95317aa_grande.jpg",
+    name: " 323 2323 232 ",
+    price: 1288888,
+    discount: 42424,
+  },
 ];
 const Home = () => {
   // const [currentPage, setCurrentPage] = useState(1);

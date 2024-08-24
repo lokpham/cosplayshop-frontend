@@ -36,6 +36,42 @@ const ProductDetail = ({
             src={fake_data.image}
             alt="product_img"
           />
+          <Image.PreviewGroup
+            preview={{
+              onChange: (current, prev) =>
+                console.log(`current index: ${current}, prev index: ${prev}`),
+            }}
+          >
+            <div className="flex gap-2 flex-wrap">
+              <div className="hidden">
+                <Image width={0} src={fake_data.image} alt="product_img" />
+              </div>
+              <div className="border-2">
+                <Image
+                  width={90}
+                  src="https://product.hstatic.net/1000273792/product/7f_47acd3dd8cc949fd8009e87ddf386284_grande.jpg"
+                />
+              </div>
+              <div className="border-2">
+                <Image
+                  width={90}
+                  src="https://product.hstatic.net/1000273792/product/7e_a2562c54d8334ade81a808a3f03cf0ca_grande.jpg"
+                />
+              </div>
+              <div className="border-2">
+                <Image
+                  width={90}
+                  src="https://product.hstatic.net/1000273792/product/7b_f570097b78e54fc69fc0a790be516313_grande.jpg"
+                />
+              </div>
+              <div className="border-2">
+                <Image
+                  width={90}
+                  src="https://i.ytimg.com/vi/TGtWWb9emYI/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDMKFT5p2tU8LLbRKFQnyUlQKspbw"
+                />
+              </div>
+            </div>
+          </Image.PreviewGroup>
           {type && <RatingWrapper />}
         </div>
         <div className="space-y-4">

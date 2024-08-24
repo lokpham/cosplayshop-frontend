@@ -55,6 +55,7 @@ const CompartmentItem = ({ infor }: { infor: card_product }) => {
             <img
               className="hover:scale-110 transition-transform"
               draggable="false"
+              loading="lazy"
               src={infor.image}
               alt=""
             />

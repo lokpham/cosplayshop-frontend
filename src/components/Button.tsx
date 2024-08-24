@@ -26,7 +26,7 @@ const Button = ({
   } else {
     return (
       <button onClick={onClick} className={`button ${type} ${size}`}>
-        <span className="flex gap-1 items-center">
+        <span className="flex gap-1 items-center justify-center">
           {icon}
           {children}
         </span>
