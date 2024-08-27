@@ -52,15 +52,10 @@ const MenuSide = () => {
   };
   return (
     <div>
-      <div className="md:hidden flex justify-between items-center ">
-        <RiMenu2Fill
-          onClick={() => setOpen(true)}
-          className="text-white text-[2rem] cursor-pointer"
-        />
-        <Link className="btn-login" to={"login"}>
-          ĐĂNG NHẬP
-        </Link>
-      </div>
+      <RiMenu2Fill
+        onClick={() => setOpen(true)}
+        className="text-white text-[2rem] cursor-pointer"
+      />
       <Drawer placement="left" onClose={onClose} open={open}>
         <Menu
           onClick={onClick}

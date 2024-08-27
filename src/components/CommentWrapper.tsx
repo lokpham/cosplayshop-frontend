@@ -1,11 +1,11 @@
 import React from "react";
-import ChatInput from "src/components/ChatInput";
+import CommentInput from "src/components/CommentInput";
 import CommentList from "src/components/CommentList";
 
 const CommentWrapper = () => {
   return (
     <div>
-      <ChatInput />
+      <CommentInput />
       <CommentList />
     </div>
   );

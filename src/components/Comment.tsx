@@ -3,7 +3,7 @@
 import React from "react";
 
 const Comment = ({ comment }: { comment: any }) => {
-  const { user, text, image, replies } = comment;
+  const { user, text, image } = comment;
 
   return (
     <div>
@@ -20,18 +20,9 @@ const Comment = ({ comment }: { comment: any }) => {
         />
         <div>
           <strong>{user}</strong>
-          <p>{text}</p>
-          <div>phản hồi</div>
+          <p className="max-w-[700px]">{text}</p>
         </div>
       </div>
-
-      {replies && replies.length > 0 && (
-        <div style={{ marginLeft: "20px" }}>
-          {replies.map((reply: any) => (
-            <Comment key={reply.id} comment={reply} />
-          ))}
-        </div>
-      )}
     </div>
   );
 };

@@ -68,7 +68,7 @@ const CompartmentItem = ({ infor }: { infor: card_product }) => {
           <div className="space-x-2 mt-4 w-fit ml-auto">
             <Button
               onClick={showLoading}
-              type="secondary"
+              type_button="secondary"
               size="small"
               icon={<MdAddShoppingCart />}
             >
@@ -84,7 +84,7 @@ const CompartmentItem = ({ infor }: { infor: card_product }) => {
         footer={
           <Button
             onClick={handleAddCart}
-            type="secondary"
+            type_button="secondary"
             size="small"
             icon={<MdAddShoppingCart />}
           >

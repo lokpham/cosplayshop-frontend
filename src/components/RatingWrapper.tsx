@@ -49,7 +49,7 @@ const RatingWrapper = () => {
       <Modal
         title={"Đánh giá"}
         footer={
-          <Button onClick={handleAddCart} type="secondary" size="small">
+          <Button onClick={handleAddCart} type_button="secondary" size="small">
             OK
           </Button>
         }
@@ -60,7 +60,7 @@ const RatingWrapper = () => {
           {[...Array(5)].map((item, index) => {
             return (
               <div
-              key={index}
+                key={index}
                 onClick={() => setRate(index)}
                 className={`p-2 select-none cursor-pointer hover:text-white  hover:bg-secondary-500 border-secondary border-2 ${
                   rate == index ? "bg-secondary text-white" : ""

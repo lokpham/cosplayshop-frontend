@@ -6,12 +6,19 @@ import { RiMenu2Fill } from "react-icons/ri";
 import Navbar from "./Navbar";
 import Button from "src/components/Button";
 import MenuSide from "src/components/MenuSide";
+import { useAtomValue } from "jotai";
+import { authentication_atom } from "src/atoms/myAtom";
+import UserAccount from "src/components/UserAccount";
+import AuthHeader from "src/components/AuthHeader";
 const Header = () => {
   return (
     <>
       <div className="bg-secondary shadow-md fixed w-full z-50">
         <div className="container mx-auto py-2 px-4">
-          <MenuSide />
+          <div className="md:hidden flex justify-between items-center ">
+            <MenuSide />
+            <AuthHeader />
+          </div>
           <div className="flex gap-5 justify-between items-center my-2">
             <div className="hidden md:block">
               <img src={logo} alt="logo" />
@@ -23,9 +30,7 @@ const Header = () => {
               <Cart />
             </div>
             <div className="hidden md:block">
-              <Button type="link" href="login">
-                ĐĂNG NHẬP
-              </Button>
+              <AuthHeader />
             </div>
           </div>
           <Navbar />
