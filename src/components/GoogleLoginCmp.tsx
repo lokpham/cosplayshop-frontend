@@ -1,7 +1,7 @@
 import { useGoogleLogin } from "@react-oauth/google";
 import { notification } from "antd";
 import { useAtom } from "jotai";
-
+import { login } from "src/api/Auth";
 import GoogleButton from "react-google-button";
 import { useNavigate } from "react-router-dom";
 import { authentication_action } from "src/atoms/myAtom";
@@ -32,11 +32,35 @@ const GoogleLoginCmp = () => {
         },
       }
     );
+    if (!response.ok) {
+      api.open({
+        message: "Thông báo",
+        description: "Có lỗi khi đăng nhập google",
+        duration: 2,
+        showProgress: true,
+        type: "error",
+
+        placement: "bottomRight",
+      });
+    }
     const data = await response.json();
-    setUser(data);
-    navigate("/");
+    const user_response = await login(data.email, data.name, data.picture);
+    if (!user_response.error) {
+      setUser(user_response.data);
+      navigate("/");
+    } else {
+      api.open({
+        message: "Thông báo",
+        description: "Có lỗi",
+        duration: 2,
+        showProgress: true,
+        type: "error",
+
+        placement: "bottomRight",
+      });
+    }
   };
-  const login = useGoogleLogin({
+  const handleLogin = useGoogleLogin({
     onSuccess: handleLoginSuccess,
     onError: handleLoginFail,
   });
@@ -45,7 +69,7 @@ const GoogleLoginCmp = () => {
       <GoogleButton
         label="Đăng nhập với Google"
         style={{ width: "100%" }}
-        onClick={() => login()}
+        onClick={() => handleLogin()}
       />
       {contextHolder}
     </div>

@@ -2,6 +2,7 @@ import { MdDelete } from "react-icons/md";
 import { cart_atom } from "../atoms/myAtom";
 import { useSetAtom } from "jotai";
 import InputQuantity from "./InputQuantity";
+import { Image } from "antd";
 const CartItem = ({
   name,
   quantity,
@@ -20,8 +21,13 @@ const CartItem = ({
     deleteCartItem(id);
   };
   return (
-    <div className="flex gap-2 p-2 hover:bg-gray-300">
-      <img className="size-[50px] object-fill" src={image} alt="" />
+    <div className="flex justify-between gap-2 p-2 hover:bg-gray-300">
+      <Image
+        className="shadow-md"
+        wrapperClassName="size-[50px]"
+        src={image}
+        alt="cart-item"
+      />
       <div className="space-y-1">
         <p className="font-semibold">{name}</p>
         <InputQuantity />

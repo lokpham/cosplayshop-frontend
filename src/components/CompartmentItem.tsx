@@ -1,5 +1,5 @@
 import React, { MouseEvent, MouseEventHandler } from "react";
-import { Badge, Modal, notification } from "antd";
+import { Badge, Image, Modal, notification } from "antd";
 import { MdAddShoppingCart } from "react-icons/md";
 import { FaMagnifyingGlassPlus } from "react-icons/fa6";
 import { card_product } from "../types/product_type";
@@ -52,12 +52,11 @@ const CompartmentItem = ({ infor }: { infor: card_product }) => {
             className="w-full 
            overflow-hidden"
           >
-            <img
-              className="hover:scale-110 transition-transform"
-              draggable="false"
-              loading="lazy"
+            <Image
+              wrapperClassName="hover:scale-110 transition-transform"
               src={infor.image}
-              alt=""
+              alt={infor.id + ""}
+              preview={false}
             />
           </div>
         </Badge.Ribbon>

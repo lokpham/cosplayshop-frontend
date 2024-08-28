@@ -1,6 +1,8 @@
 import { Dropdown, MenuProps, Space } from "antd";
 import { Link, useNavigate } from "react-router-dom";
-const items: MenuProps["items"] = [
+import { category } from "src/types/types";
+import { convertDataToMenuAntd } from "src/utils/common";
+let items: MenuProps["items"] = [
   {
     key: "1",
     label: "Áo - Trang phục",
@@ -51,11 +53,12 @@ const fakedata = [
   },
 ];
 
-const Navbar = () => {
+const Navbar = ({ data }: any) => {
+  items = convertDataToMenuAntd(data);
   const navigate = useNavigate();
   const onClick: MenuProps["onClick"] = ({ key }) => {
     console.log(`Click on item ${key}`);
-    navigate("/catetory");
+    navigate("/category/" + key);
   };
   return (
     <ul className=" divide-x text-white md:flex hidden">

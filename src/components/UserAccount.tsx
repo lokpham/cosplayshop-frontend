@@ -28,8 +28,8 @@ const UserAccount = ({ data }: any) => {
     },
     {
       label: (
-        <div className="flex items-center gap-2 text-red-600">
-          <IoIosLogOut /> <span onClick={handleLogout}>Đăng xuất</span>
+        <div onClick={handleLogout} className="flex items-center gap-2 text-red-600">
+          <IoIosLogOut /> <span >Đăng xuất</span>
         </div>
       ),
       key: "3",

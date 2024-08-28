@@ -1,22 +1,18 @@
 import logo from "../assets/logo.png";
 import InputSearch from "./InputSearch";
 import Cart from "./Cart";
-import { Link } from "react-router-dom";
-import { RiMenu2Fill } from "react-icons/ri";
 import Navbar from "./Navbar";
-import Button from "src/components/Button";
 import MenuSide from "src/components/MenuSide";
-import { useAtomValue } from "jotai";
-import { authentication_atom } from "src/atoms/myAtom";
-import UserAccount from "src/components/UserAccount";
 import AuthHeader from "src/components/AuthHeader";
+import useFetch from "src/api/useFetch";
 const Header = () => {
+  const { data, error, loading } = useFetch("/catetory/all");
   return (
     <>
       <div className="bg-secondary shadow-md fixed w-full z-50">
         <div className="container mx-auto py-2 px-4">
           <div className="md:hidden flex justify-between items-center ">
-            <MenuSide />
+            <MenuSide data={data} />
             <AuthHeader />
           </div>
           <div className="flex gap-5 justify-between items-center my-2">
@@ -33,7 +29,7 @@ const Header = () => {
               <AuthHeader />
             </div>
           </div>
-          <Navbar />
+          <Navbar data={data} />
         </div>
       </div>
     </>

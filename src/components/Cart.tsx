@@ -1,5 +1,5 @@
 import { Badge, Drawer, Empty } from "antd";
-import {  useState } from "react";
+import { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import CartItem from "./CartItem";
 import { cart_atom } from "../atoms/myAtom";
@@ -7,7 +7,6 @@ import { useAtomValue } from "jotai";
 const Cart = () => {
   const [open, setOpen] = useState(false);
   const data: any = useAtomValue(cart_atom.getAllCart);
-  console.log(data);
   const showDrawer = () => {
     setOpen(true);
   };
