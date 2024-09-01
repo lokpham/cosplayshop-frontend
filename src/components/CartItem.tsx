@@ -23,12 +23,12 @@ const CartItem = ({
   return (
     <div className="flex justify-between gap-2 p-2 hover:bg-gray-300">
       <Image
-        className="shadow-md"
-        wrapperClassName="size-[50px]"
+        className="shadow-md "
+        wrapperClassName="size-[50px] shrink-0"
         src={image}
         alt="cart-item"
       />
-      <div className="space-y-1">
+      <div className="space-y-1 shrink">
         <p className="font-semibold">{name}</p>
         <InputQuantity />
         <p>Giá: {price.toLocaleString("en-US")} đ</p>

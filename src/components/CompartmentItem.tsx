@@ -9,20 +9,7 @@ import { Link, redirect } from "react-router-dom";
 import PriceDiscount from "./PriceDiscount";
 import ProductDetail from "./ProductDetail";
 import Button from "src/components/Button";
-const CompartmentItem = ({ infor }: { infor: card_product }) => {
-  const [api, contextHolder] = notification.useNotification();
-  const openNotification = () => {
-    api.open({
-      message: "Thông báo",
-      description: "Thêm thành công",
-      duration: 2,
-      showProgress: true,
-      type: "success",
-      placement: "bottomRight",
-    });
-  };
-
-  const [, setListcart] = useAtom(cart_atom.addCart);
+const CompartmentItem = ({ infor }: { infor: any }) => {
   const [open, setOpen] = React.useState<boolean>(false);
   const [loading, setLoading] = React.useState<boolean>(true);
 
@@ -35,16 +22,11 @@ const CompartmentItem = ({ infor }: { infor: card_product }) => {
       setLoading(false);
     }, 2000);
   };
-  const handleSelect = () => {};
-  const handleAddCart = () => {
-    setOpen(false);
-    setListcart({ ...infor });
-    openNotification();
-  };
+
   return (
     <>
       <Link
-        to={"/product/detail/:id"}
+        to={"/product/detail/" + infor.id}
         className="h-full select-none flex  flex-col p-2 hover:shadow-lg transition-shadow"
       >
         <Badge.Ribbon text={"New"} color="gold">
@@ -76,27 +58,17 @@ const CompartmentItem = ({ infor }: { infor: card_product }) => {
           </div>
         </div>
       </Link>
-      {contextHolder}
       <Modal
         width={1000}
         title={<p>{loading ? "Vui lòng chờ..." : "Thông tin sản phẩm"}</p>}
-        footer={
-          <Button
-            onClick={handleAddCart}
-            type_button="secondary"
-            size="small"
-            icon={<MdAddShoppingCart />}
-          >
-            Thêm
-          </Button>
-        }
         loading={loading}
+        footer={false}
         open={open}
         onCancel={() => setOpen(false)}
       >
         {/* <p>2424244242</p> */}
         <div className="h-[50vh] overflow-y-auto">
-          <ProductDetail />
+          <ProductDetail type="cart" id_prop={infor.id} />
         </div>
       </Modal>
     </>

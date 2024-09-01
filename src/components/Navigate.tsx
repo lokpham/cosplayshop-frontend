@@ -1,26 +1,11 @@
 import { Breadcrumb } from "antd";
+import { ItemType } from "antd/es/breadcrumb/Breadcrumb";
 import { Link } from "react-router-dom";
 
-const Navigate = () => {
+const Navigate = ({ item }: { item: ItemType[] }) => {
   return (
     <div className="p-2">
-      <Breadcrumb
-        className=""
-        items={[
-          {
-            title: <Link to={"/"}>Home</Link>,
-          },
-          {
-            title: <a href="">Sản phẩm</a>,
-          },
-          {
-            title: <a href="">adas asd asd</a>,
-          },
-          {
-            title: "An Application",
-          },
-        ]}
-      />
+      <Breadcrumb className="" items={item} />
     </div>
   );
 };

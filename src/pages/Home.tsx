@@ -4,7 +4,9 @@ import item2 from "../assets/carousel/item2.png";
 import Compartment from "src/components/Compartment";
 import { card_product } from "../types/product_type";
 import Pagination from "../components/Pagination";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import ProductListSkeleton from "src/components/ProductListSkeleton";
+import useFetch from "src/api/useFetch";
 const carousel_data = [item1, item2];
 
 const fake_products: card_product[] = [
@@ -68,7 +70,8 @@ const fake_products: card_product[] = [
 const Home = () => {
   // const [currentPage, setCurrentPage] = useState(1);
   // const totalPages = 10; // Tổng số trang
-
+  const response = useFetch("/product/all?page=1");
+  console.log(response);
   // const handlePageChange = (page: number) => {
   //   setCurrentPage(page);
   // };
@@ -89,9 +92,8 @@ const Home = () => {
           })}
         </Carousel>
       </div>
-
-      <Compartment title="Hàng mới về" data={fake_products} />
-      <Compartment title="Hàng bán chạy" data={fake_products} />
+      <Compartment data={response} title="Hàng mới về" />
+      <Compartment data={response} title="Hàng bán chạy" />
       {/* <Pagination
         currentPage={currentPage}
         totalPages={totalPages}

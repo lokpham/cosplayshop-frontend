@@ -90,3 +90,7 @@
 .ant-menu-submenu-title:hover:hover {
   @apply bg-secondary-300  !important;
 }
+
+.option_variant_active {
+  @apply border-red-500 !important;
+}

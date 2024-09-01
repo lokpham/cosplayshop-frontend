@@ -3,6 +3,8 @@ import CompartmentItem from "src/components/CompartmentItem";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { card_product } from "src/types/product_type";
+import { useEffect, useState } from "react";
+import ProductListSkeleton from "src/components/ProductListSkeleton";
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
@@ -20,33 +22,35 @@ const responsive = {
     slidesToSlide: 1, // optional, default to 1.
   },
 };
-const Compartment = ({
-  title,
-  data,
-}: {
-  title: string;
-  data: card_product[];
-}) => {
+
+const Compartment = ({ title, data }: { title: string; data: any }) => {
   return (
-    <div className="my-5 ">
-      <div className="text-[1.5rem] flex justify-between">
-        <h4 className="font-semibold">{title}</h4>
-        <GoDash />
-      </div>
-      <Carousel
-        swipeable={false}
-        draggable={true}
-        responsive={responsive}
-        autoPlaySpeed={1000}
-        keyBoardControl={true}
-        containerClass="carousel-container pb-6 pt-2"
-        itemClass="carousel-item-padding-40-px"
-      >
-        {data.map((item, index) => {
-          return <CompartmentItem infor={item} key={index} />;
-        })}
-      </Carousel>
-    </div>
+    <>
+      {data.loading ? (
+        <ProductListSkeleton />
+      ) : (
+        <div className="my-5 ">
+          <div className="text-[1.5rem] flex justify-between">
+            <h4 className="font-semibold">{title}</h4>
+            <GoDash />
+          </div>
+          <Carousel
+            swipeable={false}
+            draggable={true}
+            responsive={responsive}
+            autoPlaySpeed={1000}
+            keyBoardControl={true}
+            containerClass="carousel-container pb-6 pt-2"
+            itemClass="carousel-item-padding-40-px"
+          >
+            {data.data.map((item: any, index: number) => {
+              console.log(item);
+              return <CompartmentItem infor={item} key={index} />;
+            })}
+          </Carousel>
+        </div>
+      )}
+    </>
   );
 };
 

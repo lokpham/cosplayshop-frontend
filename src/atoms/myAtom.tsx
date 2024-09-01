@@ -36,7 +36,7 @@ export const cart_atom = {
       let list_cart: any = get(list_cart_atom);
       let mark = false;
       for (var item of list_cart) {
-        if (item.id == cart.id) {
+        if (item.sku == cart.sku) {
           item.quantity = item.quantity + 1;
           mark = true;
           set(list_cart_atom, [...list_cart]);
