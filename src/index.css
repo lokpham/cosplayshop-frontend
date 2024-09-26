@@ -36,7 +36,12 @@
     @apply text-red-500;
   }
   .button {
-    @apply select-none min-w-[60px];
+    @apply select-none min-w-[60px] text-center;
+  }
+  .button.loading {
+    user-select: none !important;
+    pointer-events: none !important;
+    opacity: 0.6 !important;
   }
   .button.primary {
     @apply bg-secondary-600 text-white hover:bg-secondary-500;
@@ -55,6 +60,9 @@
   }
   .button.small {
     @apply px-2 py-1 rounded-md shadow-sm;
+  }
+  .button.full {
+    @apply py-2 w-full text-center rounded-md shadow-sm;
   }
 }
 .pagination {

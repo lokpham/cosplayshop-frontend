@@ -11,6 +11,9 @@ const CosplayerPage = lazy(() => import("../pages/CosplayerPage"));
 const ProductDetailPage = lazy(() => {
   return import("../pages/ProductDetailPage");
 });
+const CartDetailList = lazy(() => {
+  return import("../pages/CartDetailList");
+});
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -55,6 +58,14 @@ export const router = createBrowserRouter([
         element: (
           <Suspense fallback={<LoadingPage />}>
             <ProductDetailPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/cart/list",
+        element: (
+          <Suspense fallback={<LoadingPage />}>
+            <CartDetailList />
           </Suspense>
         ),
       },

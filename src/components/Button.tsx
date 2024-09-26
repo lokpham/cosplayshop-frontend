@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 
 type button_type = {
   type_button?: "primary" | "secondary" | "link" | "submit";
-  size?: "small" | "large" | "medium";
+  size?: "small" | "large" | "medium" | "full";
   onClick?: MouseEventHandler<HTMLButtonElement>;
   icon?: ReactNode;
   children: ReactNode;
   href?: string;
+  isLoading?: boolean;
 } & ComponentPropsWithoutRef<"button">;
 const Button = ({
   type_button = "primary",
@@ -15,6 +16,7 @@ const Button = ({
   icon,
   onClick,
   href = "#",
+  isLoading = false,
   children,
   ...props
 }: button_type) => {
@@ -29,12 +31,20 @@ const Button = ({
       <button
         type={type_button == "submit" ? "submit" : "button"}
         onClick={onClick}
-        className={`button ${type_button} ${size}`}
+        className={`button ${
+          isLoading ? "loading" : ""
+        } ${type_button} ${size}`}
         {...props}
       >
         <span className="flex gap-1 items-center justify-center">
-          {icon}
-          {children}
+          {isLoading ? (
+            "Vui lòng chờ"
+          ) : (
+            <>
+              {icon}
+              {children}
+            </>
+          )}
         </span>
       </button>
     );

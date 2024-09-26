@@ -8,7 +8,7 @@ import ProductListSkeleton from "src/components/ProductListSkeleton";
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 6,
+    items: 5,
     slidesToSlide: 3, // optional, default to 1.
   },
   tablet: {
@@ -23,10 +23,19 @@ const responsive = {
   },
 };
 
-const Compartment = ({ title, data }: { title: string; data: any }) => {
+const Compartment = ({
+  title,
+  data,
+  isLoading,
+}: {
+  title: string;
+  data: any;
+  isLoading: boolean;
+}) => {
+  console.log(data);
   return (
     <>
-      {data.loading ? (
+      {isLoading ? (
         <ProductListSkeleton />
       ) : (
         <div className="my-5 ">
@@ -44,7 +53,6 @@ const Compartment = ({ title, data }: { title: string; data: any }) => {
             itemClass="carousel-item-padding-40-px"
           >
             {data.data.map((item: any, index: number) => {
-              console.log(item);
               return <CompartmentItem infor={item} key={index} />;
             })}
           </Carousel>

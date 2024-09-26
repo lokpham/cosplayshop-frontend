@@ -15,6 +15,7 @@ export const authentication_atom = atomWithStorage<authentication>(
 );
 
 export const authentication_action = {
+  getUser: atom((get) => get(authentication_atom)),
   login: atom(
     (get) => get(authentication_atom),
     (get, set, payload: any) => {
@@ -37,13 +38,13 @@ export const cart_atom = {
       let mark = false;
       for (var item of list_cart) {
         if (item.sku == cart.sku) {
-          item.quantity = item.quantity + 1;
+          item.quantity += cart.quantity;
           mark = true;
           set(list_cart_atom, [...list_cart]);
         }
       }
       if (!mark) {
-        list_cart = [...list_cart, { ...cart, quantity: 1 }];
+        list_cart = [...list_cart, { ...cart }];
         set(list_cart_atom, list_cart);
       }
     }
@@ -51,11 +52,18 @@ export const cart_atom = {
   getAllCart: atom((get) => {
     let list: any = get(list_cart_atom);
     let total = 0;
+    let total_money = 0;
     for (var item of list) {
       total += item.quantity;
+      if (item.discount == 0) {
+        total_money += item.price;
+      } else {
+        total_money += item.discount;
+      }
     }
     return {
       total: total,
+      total_money: total_money,
       list: get(list_cart_atom),
     };
   }),

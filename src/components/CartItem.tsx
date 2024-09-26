@@ -3,18 +3,21 @@ import { cart_atom } from "../atoms/myAtom";
 import { useSetAtom } from "jotai";
 import InputQuantity from "./InputQuantity";
 import { Image } from "antd";
+import { Link } from "react-router-dom";
 const CartItem = ({
   name,
   quantity,
   image,
   price,
   id,
+  discount,
 }: {
   name: string;
   quantity: number;
   image: string;
   price: number;
   id: number;
+  discount: number;
 }) => {
   const deleteCartItem = useSetAtom(cart_atom.deleteCartItem);
   const handleDeleteCartItem = () => {
@@ -29,12 +32,23 @@ const CartItem = ({
         alt="cart-item"
       />
       <div className="space-y-1 shrink">
-        <p className="font-semibold">{name}</p>
-        <InputQuantity />
-        <p>Giá: {price.toLocaleString("en-US")} đ</p>
+        <Link
+          to={"/cart/list"}
+          reloadDocument
+          className="font-semibold hover:underline cursor-pointer hover:text-secondary-600"
+        >
+          {name}
+        </Link>
+        <p className="font-semibold">Số lượng: {quantity}</p>
+        <p>Giá: {(discount ? discount : price).toLocaleString("en-US")} đ</p>
         <p>
-          Tổng: {(price * quantity).toLocaleString("en-US")} đ{" "}
-          {"(" + price.toLocaleString("en-US") + " x" + quantity + ")"}
+          Tổng:{" "}
+          {((discount ? discount : price) * quantity).toLocaleString("en-US")} đ{" "}
+          {"(" +
+            (discount ? discount : price).toLocaleString("en-US") +
+            " x" +
+            quantity +
+            ")"}
         </p>
       </div>
       <div>

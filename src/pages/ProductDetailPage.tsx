@@ -20,7 +20,6 @@ const ProductDetailPage = () => {
         ]}
       />
       <ProductDetail type="detail" />
-      <CommentWrapper />
     </div>
   );
 };

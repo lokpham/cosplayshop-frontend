@@ -32,7 +32,7 @@ const CommentInput = () => {
           onChange={handleChange}
           placeholder={`Nhập bình luận (tối đa ${maxWords} từ)`}
           rows={2}
-          className="max-h-[200px] min-h-[40px] outline-none border-2 border-secondary-300 w-full max-w-[1000px] p-2"
+          className="max-h-[200px] min-h-[40px] outline-none border-2 border-secondary-300 w-full max-w-[600px] p-2"
         />
         <Button onClick={handleSendComment}>Gửi</Button>
       </div>
